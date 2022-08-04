@@ -5,7 +5,7 @@ import { MockServerless } from './mocks/serverless.mock'
 
 const DUMMY_OPTIONS = { stage: 'unittest', region: 'outer-space' }
 
-describe('serverless plugin log keeping', () => {
+describe('serverless plugin sets a DeletionPolicy to Retain', () => {
   it('adds a `DeletionPolicy: Retain` to Log Group', async () => {
     const serverless = MockServerless()
     const plugin = new LambdaLogKeeperPlugin(serverless, DUMMY_OPTIONS)
