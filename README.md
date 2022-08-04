@@ -1,6 +1,6 @@
 # @xoi/serverless-log-keeper
 
-**Serverless Framework plugin add a deletion retain policy on aws lambda logs**
+**Serverless Framework plugin that adds a deletion retain policy on aws lambda logs**
 
 ![npm Version badge](https://img.shields.io/npm/v/@xoi/serverless-log-keeper)
 [![Unit Tests](https://github.com/xoeye/serverless-log-keeper/actions/workflows/unit-test.yml/badge.svg)](https://github.com/xoeye/serverless-log-keeper/actions/workflows/unit-test.yml)
