@@ -23,7 +23,7 @@
 
    logkeeper:
      keepLambdaLogs: true
-  [...]
+   [...]
    ```
 
 4. Continue using Serverless as you normally would!
