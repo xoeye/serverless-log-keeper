@@ -1,5 +1,7 @@
 # @xoi/serverless-log-keeper
 
+![Log Keeper](log-keeper.png "Serverless Log Keeper")
+
 **Serverless Framework plugin that adds a deletion retain policy on aws lambda logs**
 
 ![npm Version badge](https://img.shields.io/npm/v/@xoi/serverless-log-keeper)
