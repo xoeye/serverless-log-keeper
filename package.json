@@ -1,7 +1,7 @@
 {
   "name": "@xoi/serverless-log-keeper",
   "version": "1.0.0",
-  "description": "Serverless Framework plugin to archive AWS CloudWatch log groups before deletion",
+  "description": "Serverless Framework plugin add a deletion retain policy on aws lambda logs",
   "main": "dist/index.js",
   "repository": "git@github.com:xoeye/serverless-log-keeper.git",
   "homepage": "https://github.com/xoeye/serverless-log-keeper",
