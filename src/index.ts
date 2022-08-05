@@ -62,7 +62,7 @@ export default class LambdaLogKeeperPlugin {
   setDeletionRetainOnLambdaLogs() {
     const rsrc = this.serverless.service.provider.compiledCloudFormationTemplate.Resources
     for (const key in rsrc) {
-      const logGroupName = rsrc[key].Properties.LogGroupName
+      const logGroupName = rsrc[key].Properties?.LogGroupName ?? ''
       if (rsrc[key].Type === 'AWS::Logs::LogGroup' && logGroupName.startsWith('/aws/lambda/')) {
         this.log(`setting DeletionPolicy: Retain on ${logGroupName}`)
         rsrc[key].DeletionPolicy = 'Retain'
