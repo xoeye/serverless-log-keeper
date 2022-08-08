@@ -1,0 +1,59 @@
+{
+  "name": "@xoi/serverless-log-keeper",
+  "version": "1.0.0",
+  "description": "Serverless Framework plugin that adds a deletion retain policy on aws lambda logs",
+  "main": "dist/index.js",
+  "repository": "git@github.com:xoeye/serverless-log-keeper.git",
+  "homepage": "https://github.com/xoeye/serverless-log-keeper",
+  "bugs": {
+    "url": "https://github.com/xoeye/serverless-log-keeper/issues",
+    "email": "jduncan@xoi.io"
+  },
+  "author": "josh duncan <josh@qual.ms>",
+  "license": "Apache-2.0",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "pre-commit": "lint-staged",
+    "lint": "eslint src",
+    "build": "rm -rf dist && tsc",
+    "test": "mocha src",
+    "test:coverage": "nyc --reporter=lcov mocha",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@types/sinon": "^10.0.13",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.2",
+    "mocha": "^9.1.2",
+    "nyc": "^15.1.0",
+    "prettier": "^2.4.1",
+    "prettier-eslint-cli": "^5.0.1",
+    "serverless": "^2.60.1",
+    "sinon": "^14.0.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "peerDependencies": {
+    "serverless": ">= 1.15.0 <4"
+  },
+  "engines": {
+    "node": ">=16.0"
+  },
+  "keywords": [
+    "serverless",
+    "sls",
+    "aws",
+    "cloudwatch",
+    "log groups",
+    "logs",
+    "lambda"
+  ]
+}
