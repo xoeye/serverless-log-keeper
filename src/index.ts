@@ -60,7 +60,8 @@ export default class LambdaLogKeeperPlugin {
     this.serverless.cli.log(`${LOG_PREFIX} ${str}${objects_str}`)
   }
   setDeletionRetainOnLambdaLogs() {
-    const rsrc = this.serverless.service.provider.compiledCloudFormationTemplate.Resources
+    const rsrc = this.serverless.service.provider.compiledCloudFormationTemplate
+      .Resources
     for (const key in rsrc) {
       const logGroupName = rsrc[key].Properties?.LogGroupName ?? ''
       if (rsrc[key].Type === 'AWS::Logs::LogGroup' && logGroupName.startsWith('/aws/lambda/')) {
