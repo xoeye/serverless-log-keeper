@@ -46,7 +46,7 @@ export default class LambdaLogKeeperPlugin {
 
     this.keepLambdaLogs = config.keepLambdaLogs as boolean
 
-    if (!this.keepLambdaLogs) {
+    if (typeof this.keepLambdaLogs !== 'boolean') {
       throw new Error(
         'Please specify `logKeeper.keepLambdaLogs` with true or false in your serverless.yml file!'
       )
@@ -65,7 +65,7 @@ export default class LambdaLogKeeperPlugin {
       const logGroupName = rsrc[key].Properties?.LogGroupName ?? ''
       if (rsrc[key].Type === 'AWS::Logs::LogGroup' && logGroupName.startsWith('/aws/lambda/')) {
         this.log(`setting DeletionPolicy: Retain on ${logGroupName}`)
-        rsrc[key].DeletionPolicy = 'Retain'
+        rsrc[key].DeletionPolicy = this.keepLambdaLogs ? 'Retain' : 'Delete'
       }
     }
   }
