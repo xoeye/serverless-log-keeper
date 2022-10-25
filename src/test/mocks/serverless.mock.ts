@@ -2,7 +2,7 @@ import Sinon from 'sinon'
 import { Serverless } from '../../types/serverless'
 import { MockAWSProvider } from './awsProvider.mock'
 
-export const MockServerless = (): Serverless => {
+export const MockServerless = (keepLambdaLogs = true): Serverless => {
   const awsProvider = new MockAWSProvider()
   return {
     service: {
@@ -42,7 +42,7 @@ export const MockServerless = (): Serverless => {
 
     configurationInput: {
       logKeeper: {
-        keepLambdaLogs: true,
+        keepLambdaLogs,
       },
     },
   }

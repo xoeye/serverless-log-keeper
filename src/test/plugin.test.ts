@@ -16,6 +16,20 @@ describe('serverless plugin sets a DeletionPolicy to Retain', () => {
     assert(!('DeletionPolicy' in logGroup))
     plugin.setDeletionRetainOnLambdaLogs()
     assert('DeletionPolicy' in logGroup)
+    assert(logGroup.DeletionPolicy === 'Retain')
+  })
+
+  it('adds a `DeletionPolicy: Delete` to Log Group', async () => {
+    const serverless = MockServerless(false)
+    const plugin = new LambdaLogKeeperPlugin(serverless, DUMMY_OPTIONS)
+    const rsrc = serverless.service.provider.compiledCloudFormationTemplate
+      .Resources as JSONRepresentable
+    assert('LogGroup' in rsrc)
+    const logGroup = rsrc['LogGroup'] as JSONRepresentable
+    assert(!('DeletionPolicy' in logGroup))
+    plugin.setDeletionRetainOnLambdaLogs()
+    assert('DeletionPolicy' in logGroup)
+    assert(logGroup.DeletionPolicy === 'Delete')
   })
 })
 
